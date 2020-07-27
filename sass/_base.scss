@@ -1,0 +1,68 @@
+//Global reset
+
+//if we put our custom properties(variables) in root they will be available in all files 
+:root {
+    --color-primary: #eb2f64;
+    --color-primary-light: #FF3366;
+    --color-primary-dark: #BA265D;
+
+    --color-Grey-light-1: #faf9f9;
+    --color-Grey-light-2: #f4f2f2;
+    --color-Grey-light-3: #f0eeee;
+    --color-Grey-light-4: #ccc;
+
+    --color-Grey-dark-1: #333;
+    --color-Grey-dark-2: #777;
+    --color-Grey-dark-3: #999;
+
+    --color-white: #fff;
+
+    --shadow-dark: 0 2rem 6rem rgba( 0, 0, 0, .3);
+    --shadow-light: 0 2rem 5rem rgba(0,0,0,.1);
+
+    --border: 1px solid var(--color-Grey-light-2);
+}
+
+//for media queries we have to use sass variables
+$bp-largest: 75em; //1200px
+$bp-large: 68.75em; //1100px
+$bp-medium: 56.25em; //900px 900/16=56.25
+$bp-small: 37.5em; //600px 
+//at 500px we move down the search bar
+$bp-smallest: 31.25em; //500px 
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px, 10px/browser default 16px = 62.5%
+
+    //our second break point is where text goes down to the other line
+    @media only screen and (max-width: $bp-large) {
+        //dicrease with 8px
+        font-size: 50%;
+        //the 120rem that we defined for the container ar no longer 1200px. they are now 120*8 = 960px
+    }
+}
+
+body {
+    //if Open Sans won't work, the default will be sans-serif
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6rem;
+    color: var(--color-Grey-dark-2);
+    background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+}
